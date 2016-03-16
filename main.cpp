@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
     num_combs = N * (N-1);
     num_win_and_lost = num_combs;
     vector <long long> cards(N, 0);
-    vector <long long> repeats( pow ( 10. , 6) + 1 , 0);
+    vector <long long> repeats( N + 1 , 0);
     for ( long long i = 0 ; i < N; i++ )
     {
         cin >> cards[i];
@@ -21,6 +21,6 @@ int main(int argc, char *argv[])
     {
         num_win_and_lost -= repeats[i] * (repeats[i] - 1);
     }
-    cout << double(num_win_and_lost)/(num_combs*2) << " " << double(num_win_and_lost)/(num_combs*2);
+    cout << fixed << (1./2.)*double(num_win_and_lost)/double(num_combs) << " " << (1./2.)*double(num_win_and_lost)/double(num_combs);
     return a.exec();
 }
